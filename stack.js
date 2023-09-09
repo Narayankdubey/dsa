@@ -1,6 +1,6 @@
 /* Stack using Array */
 
-class Stack {
+class StackUsingArray {
   constructor() {
     this.list = [];
   }
@@ -24,7 +24,35 @@ class Stack {
   }
 }
 
-const stack = new Stack();
+class StackUsingObject {
+  constructor() {
+    this.list = {};
+    this.head = 0;
+  }
+  getSize() {
+    return this.head;
+  }
+  isEmpty() {
+    return this.head === 0;
+  }
+  pop() {
+    delete this.list[this.head];
+    this.head--;
+  }
+  push(value) {
+    this.list[this.head + 1] = value;
+    this.head++;
+  }
+  peak() {
+    return this.list[this.head];
+  }
+  print() {
+    console.log(this.list);
+  }
+}
+
+// const stack = new StackUsingArray();
+const stack = new StackUsingObject();
 console.log("is stack empty : ", stack.isEmpty());
 stack.push(5);
 stack.push(9);
