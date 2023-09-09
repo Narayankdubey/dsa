@@ -24,6 +24,8 @@ class StackUsingArray {
   }
 }
 
+/* Stack using Object */
+
 class StackUsingObject {
   constructor() {
     this.list = {};
@@ -51,8 +53,41 @@ class StackUsingObject {
   }
 }
 
+/* Stack using LinkedList */
+
+const LinkedList = require("./linkedList");
+
+class StackUsingLinkedList {
+  constructor() {
+    this.list = new LinkedList();
+  }
+  getSize() {
+    return this.list.getSize();
+  }
+  isEmpty() {
+    return this.list.isEmpty();
+  }
+  pop() {
+    this.list.removeFrom(this.list.getSize());
+  }
+  push(value) {
+    this.list.append(value);
+  }
+  peak() {
+    let curr = this.list.head;
+    while (curr && curr.next) {
+      curr = curr.next;
+    }
+    return curr.value;
+  }
+  print() {
+    this.list.print();
+  }
+}
+
 // const stack = new StackUsingArray();
-const stack = new StackUsingObject();
+// const stack = new StackUsingObject();
+const stack = new StackUsingLinkedList();
 console.log("is stack empty : ", stack.isEmpty());
 stack.push(5);
 stack.push(9);
